@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>タグの検索結果</h2>
+    <p>探しているタグ... <strong>{{ searched_tag_name }}</strong></p>
+    
+    {% if tags %}
+    <ul class="list-group mt-3">
+        {% for tag in tags %}
+            <li class="list-group-item">
+                <a href="{% url 'home-tag' tag.name %}" class="btn btn-outline-primary btn-lg btn-block">{{ tag.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>検索結果はありません。</p>
+    <p>新しくタグを作りましょう！！</p>
+    {% endif %}
+
+    <div class="d-flex justify-content-end">
+        <a class="btn btn-success btn-lg mt-3" href="{% url 'create-tag' %}" role="button">タグを作る</a>
+    </div>
+
+</div>
+{% endblock content %}

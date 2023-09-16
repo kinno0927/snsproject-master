@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>タグ作成ページ</h2>
+    <form method="post" class="mt-3">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">タグの名前</label>
+            {{ form.name }}
+        </div>
+        <button type="submit" class="btn btn-primary">投稿</button>
+    </form>
+</div>
+{% endblock content %}
