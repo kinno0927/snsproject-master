@@ -39,7 +39,7 @@ class CreateTag(LoginRequiredMixin, CreateView):
 
 
 
-class Home(LoginRequiredMixin, ListView, CreateView):
+class Home( ListView, CreateView):
     """HOMEページで、自分以外のユーザー投稿をリスト表示"""
     model = Post
     form_class = PostForm
