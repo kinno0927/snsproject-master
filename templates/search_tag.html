@@ -7,8 +7,7 @@
     
     {% if tags %}
         {% for tag in tags %}
-            <li class="list-group-item">
-                <a href="{% url 'home-tag' tag.name %}" class="btn btn-link btn-lg btn-block">{{ tag.name }}</a>
+                <a href="{% url 'home-tag' tag.name %}" class="btn btn-outline-primary btn-lg btn-block">{{ tag.name }}</a>
             </li>
         {% endfor %}
     </ul>
