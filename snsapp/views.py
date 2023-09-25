@@ -9,7 +9,23 @@ from .models import Post
 from .forms import PostForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.conf import settings
 
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect(settings.LOGIN_REDIRECT_URL)
+        else:
+            # ログインに失敗した場合の処理
+            pass
+    return render(request, 'login.html')
 
 class TagListView(LoginRequiredMixin,ListView):
     """タグ一覧"""
