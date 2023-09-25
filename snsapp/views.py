@@ -7,12 +7,25 @@ from django.contrib.auth.models import User
 from .models import Tag
 from .models import Post 
 from .forms import PostForm
+
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.conf import settings
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
+from . import forms
+
+class LiginView(LoginView):
+    """ログインページ"""
+    form_class = forms.LoginForm
+    template_name = "account/login.html"
+
+class LogoutView(LoginRequiredMixin, LogoutView):
+    """ログアウトページ"""
+    template_name = "account/login.html"
 
 def login_view(request):
     if request.method == 'POST':
