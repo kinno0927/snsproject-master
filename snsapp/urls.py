@@ -1,8 +1,9 @@
 from django.urls import path
 from .views import Home, MyPost, CreatePost, DetailPost, UpdatePost, DeletePost,LikeHome,  LikeDetail,TagListView ,CreateTag, SearchTagView
-
+from django.contrib.auth.views import LoginView
 
 urlpatterns = [
+    path('accounts/login/', LoginView.as_view(), name='login'),
     path('', TagListView.as_view(), name='tag'),
     path('home/', Home.as_view(), name='home'),
     path('home/tag/<str:tag_name>/', Home.as_view(), name='home-tag'),   
