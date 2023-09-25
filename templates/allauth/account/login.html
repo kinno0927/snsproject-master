@@ -1,27 +1,33 @@
-{% extends "templates\base.html" %}
+{% extends "templates/base.html" %}
 
-<head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"><!doctype html>
-
-</head>
- 
- 
-<h1 class="h3 mb-3 font-weight-normal">ログイン</h1>
- 
- 
- 
-<p>アカウントを持っていなければ、アカウントを新しく作成してください
-<a href="{{ signup_url }}">sign up</a> first</p>
- 
-<form class="form-signin" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {% bootstrap_form form %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button type="submit" class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
-</form>
- 
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="h3 mb-3 font-weight-normal">ログイン</h1>
+            <p>アカウントを持っていなければ、アカウントを新しく作成してください <a href="{{ signup_url }}">Sign up</a> first</p>
+            
+            <form class="form-signin" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                
+                {% for field in form.visible_fields %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                
+                <a class="btn btn-link" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                <button type="submit" class="btn btn-primary">ログイン</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
-
