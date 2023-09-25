@@ -99,6 +99,8 @@
 
       <form class="signup" method="POST" action="/accounts/signup/">
         {% csrf_token %}
+        <h1 class="h3 mb-3 fw-normal">アカウント作成</h1>
+
         <div class="form-floating">
           <input type="text" class="form-control" id="id_username" name="username" placeholder="ユーザー名" autocomplete="username" maxlength="150" required>
           <label for="id_username">ユーザー名</label>
