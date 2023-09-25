@@ -7,9 +7,8 @@
  
  
  
-<p>{% blocktrans %}アカウントを持っていなければ、アカウントを新しく作成してください
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-{% endif %}
+<p>アカウントを持っていなければ、アカウントを新しく作成してください
+<a href="{{ signup_url }}">sign up</a> first</p>
  
 <form class="form-signin" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
