@@ -39,6 +39,7 @@ DATABASES = {
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrap5',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,7 +51,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account', 
     'allauth.socialaccount', 
-    'bootstrap5',
 ]
 
 
