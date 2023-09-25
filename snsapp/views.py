@@ -18,27 +18,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from . import forms
 
-class LiginView(LoginView):
-    """ログインページ"""
-    form_class = forms.LoginForm
-    template_name = "account/login.html"
-
-class LogoutView(LoginRequiredMixin, LogoutView):
-    """ログアウトページ"""
-    template_name = "account/login.html"
-
-def login_view(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect(settings.LOGIN_REDIRECT_URL)
-        else:
-            # ログインに失敗した場合の処理
-            pass
-    return render(request, 'list.html')
 
 class TagListView(LoginRequiredMixin,ListView):
     """タグ一覧"""
