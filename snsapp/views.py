@@ -25,7 +25,7 @@ def login_view(request):
         else:
             # ログインに失敗した場合の処理
             pass
-    return render(request, 'login.html')
+    return render(request, 'list.html')
 
 class TagListView(LoginRequiredMixin,ListView):
     """タグ一覧"""
