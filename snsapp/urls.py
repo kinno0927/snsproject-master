@@ -8,8 +8,6 @@ urlpatterns = [
     path('', TagListView.as_view(), name='tag'),
     path('home/', Home.as_view(), name='home'),
 
-    path("login/", views.LoginView.as_view(), name="login"),
-    path("logout/", views.LogoutView.as_view(), name="logout"),    
     path('home/tag/<str:tag_name>/', Home.as_view(), name='home-tag'),   
     path('search-tag/', SearchTagView.as_view(), name='search-tag'), 
     path('mypost/', MyPost.as_view(), name='mypost'),
