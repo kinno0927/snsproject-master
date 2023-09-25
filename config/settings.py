@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account', 
     'allauth.socialaccount', 
-    'bootstrap5', 
     'django_bootstrap5',
 ]
 
