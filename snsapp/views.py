@@ -9,15 +9,9 @@ from .models import Post
 from .forms import PostForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
-from django.urls import reverse_lazy
-from django.views import generic
 
-class SignUpView(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'accounts/login.html'
 
-class TagListView(ListView):
+class TagListView(LoginRequiredMixin,ListView):
     """タグ一覧"""
     model = Tag
     template_name = 'tag.html'
@@ -45,7 +39,7 @@ class CreateTag(LoginRequiredMixin, CreateView):
 
 
 
-class Home( ListView, CreateView):
+class Home(LoginRequiredMixin, ListView, CreateView):
     """HOMEページで、自分以外のユーザー投稿をリスト表示"""
     model = Post
     form_class = PostForm
