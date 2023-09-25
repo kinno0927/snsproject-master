@@ -32,7 +32,7 @@
 
       /* Custom CSS for left and right spacing */
       body {
-        padding: 20px 80px; /* 上下左右の余白を増やす */
+        padding: 40px 80px; /* 上下左右の余白を増やす */
       }
 
       /* Custom CSS for top-left text */
@@ -42,8 +42,18 @@
         left: 0;
         right: 0;
         text-align: center; /* テキストを中央揃えにする */
-        font-size: 2rem;
+        font-size: 2.5rem; /* Commuinを少し大きく */
         font-weight: bold;
+      }
+
+      /* Custom CSS for the login form */
+      .form-signin {
+        margin-top: 20px; /* フォームを少し下げる */
+      }
+
+      /* Custom CSS for the login title */
+      .form-signin h1 {
+        font-size: 2rem; /* ログインテキストを少し小さく */
       }
     </style>
 
@@ -56,7 +66,7 @@
     </div>
     <main class="form-signin">
       <form>
-        <h1 class="h3 mb-3 fw-normal" style="margin-top: 60px;">ログイン</h1>
+        <h1 class="h3 mb-3 fw-normal">ログイン</h1>
 
         <div class="form-floating">
           <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
