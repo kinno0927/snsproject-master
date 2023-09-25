@@ -9,9 +9,6 @@ from .models import Post
 from .forms import PostForm
 from django.http import HttpResponseRedirect
 
-class CustomLoginView(LoginView):
-    # ログイン成功後のリダイレクト先を指定
-    success_url = '/home/'
 
 
 class TagListView(LoginRequiredMixin, ListView):
@@ -20,6 +17,8 @@ class TagListView(LoginRequiredMixin, ListView):
     template_name = 'tag.html'
     context_object_name = 'tags'         
     
+class SearchTagView(View):
+    template_name = 'search_tag.html'
 
     def get(self, request, *args, **kwargs):
         tag_name = request.GET.get('tag_name')  # URLパラメータからタグ名を取得
