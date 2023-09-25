@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.account', 
     'allauth.socialaccount', 
     'django_bootstrap5',
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -151,3 +152,5 @@ SITE_ID = 1
 
 LOGIN_URL = '/accounts/login/'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
