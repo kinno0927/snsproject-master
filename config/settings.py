@@ -50,10 +50,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account', 
     'allauth.socialaccount', 
-    'django_bootstrap5',
-    'bootstrapform',
+    'bootstrap5', 
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
