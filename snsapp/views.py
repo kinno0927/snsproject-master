@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView, LoginView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
@@ -20,8 +20,6 @@ class TagListView(LoginRequiredMixin, ListView):
     template_name = 'tag.html'
     context_object_name = 'tags'         
     
-class SearchTagView(View):
-    template_name = 'search_tag.html'
 
     def get(self, request, *args, **kwargs):
         tag_name = request.GET.get('tag_name')  # URLパラメータからタグ名を取得
