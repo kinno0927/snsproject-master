@@ -149,5 +149,5 @@ ACCOUNT_EMAIL_REQUIRED = True
 
 SITE_ID = 1 
 
-LOGIN_URL = '/accounts/login/'
+LOGIN_URL = '/login/'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
