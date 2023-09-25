@@ -1,13 +1,13 @@
 from django.urls import path
 from .views import Home, MyPost, CreatePost, DetailPost, UpdatePost, DeletePost,LikeHome,  LikeDetail,TagListView ,CreateTag, SearchTagView
 from django.urls import path
-
+from django.contrib.auth.views import LogoutView
 from . import views
 
 urlpatterns = [
     path('', TagListView.as_view(), name='tag'),
-    path('home', Home.as_view(), name='home'),
-
+    path('accounts/logout/', LogoutView.as_view(), name='account_logout'),
+    path('home/', Home.as_view(), name='home'),
     path('home/tag/<str:tag_name>/', Home.as_view(), name='home-tag'),   
     path('search-tag/', SearchTagView.as_view(), name='search-tag'), 
     path('mypost/', MyPost.as_view(), name='mypost'),

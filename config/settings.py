@@ -151,12 +151,11 @@ ACCOUNT_EMAIL_REQUIRED = True
 
 SITE_ID = 1 
 
-LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = 'tag'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-
+ACCOUNT_LOGOUT_ON_GET = True
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -164,7 +163,8 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'logs/debug.log',  # ログファイルのパス
+            
+            'filename': BASE_DIR / 'logs' / 'debug.log',# ログファイルのパス
         },
     },
     'root': {

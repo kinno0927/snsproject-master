@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Commuin</title>
 
+    <link rel="canonical" href="https://getbootstrap.jp/docs/5.0/examples/sign-in/">
+
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -39,7 +41,7 @@
         font-weight: bold;
       }
       
-      /* Custom CSS for the form */
+      /* Custom CSS for the login form */
       .form-signin {
         margin-top: 100px; /* フォームをさらに下げる */
         max-width: 400px; /* フォームの最大幅を設定 */
@@ -47,7 +49,7 @@
         margin-right: auto;
       }
       
-      /* Custom CSS for the form title */
+      /* Custom CSS for the login title */
       .form-signin h1 {
         font-size: 1.6rem; /* ログインテキストを少し小さく */
       }
@@ -58,33 +60,14 @@
       Commuin
     </div>
     <main class="form-signin">
-
-      <form class="signup" method="POST" action="/accounts/signup/">
+      <form class="login h3 mb-3 fw-normal" method="POST" action="/accounts/logout/">
         {% csrf_token %}
-        <div class="form-floating">
-          <input type="text" class="form-control" id="id_username" name="username" placeholder="ユーザー名" autocomplete="username" maxlength="150" required>
-          <label for="id_username">ユーザー名</label>
-        </div>
-        
-        <div class="form-floating">
-          <input type="email" class="form-control" id="id_email" name="email" placeholder="メールアドレス" autocomplete="email" maxlength="254" required>
-          <label for="id_email">メールアドレス</label>
-        </div>
-
-        <div class="form-floating">
-          <input type="password" class="form-control" id="id_password1" name="password1" placeholder="パスワード" autocomplete="new-password" required>
-          <label for="id_password1">パスワード</label>
-        </div>
-
-        <div class="form-floating">
-          <input type="password" class="form-control" id="id_password2" name="password2" placeholder="パスワードの確認" autocomplete="new-password" required>
-          <label for="id_password2">パスワードの確認</label>
-        </div>
-
-        <button class="w-100 btn btn-lg btn-primary" type="submit">サインアップ</button>
+        <h1 class="h3 mb-3 fw-normal">ログアウト</h1>
+        <form method="post" action="/accounts/logout/">
+          <input type="hidden" name="csrfmiddlewaretoken" value="KTzeva62aot34l2HiRTAoHIQhuTG5ntn5aWrxrYMc2YYMx6Z8i7LutpPwhj87Qtg">
+        <button class="w-100 btn btn-lg btn-primary" type="submit">ログアウトする</button>
       </form>
       
-      <p>アカウントをお持ちですか？ <a href="/accounts/login/">ログイン</a></p>
     </main>
   </body>
 </html>

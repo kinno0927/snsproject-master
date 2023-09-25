@@ -18,4 +18,13 @@
     border: 1px solid #ccc; /* ボーダーのスタイルを調整 */
     padding: 5px 10px; /* 内部の余白を調整 */
 }
+@media (prefers-color-scheme: dark) {
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+  }
 
+body{
+background-color: aqua;
+}
