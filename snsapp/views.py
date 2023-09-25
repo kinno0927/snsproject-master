@@ -9,7 +9,9 @@ from .models import Post
 from .forms import PostForm
 from django.http import HttpResponseRedirect
 
-
+class CustomLoginView(LoginView):
+    # ログイン成功後のリダイレクト先を指定
+    success_url = '/home/'
 
 
 class TagListView(LoginRequiredMixin, ListView):
