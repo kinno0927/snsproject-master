@@ -11,7 +11,7 @@ from django.http import HttpResponseRedirect
 
 
 
-class TagListView(LoginRequiredMixin, ListView):
+class TagListView(ListView):
     """タグ一覧"""
     model = Tag
     template_name = 'tag.html'
