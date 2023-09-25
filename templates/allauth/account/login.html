@@ -5,14 +5,7 @@
  
 <h1 class="h3 mb-3 font-weight-normal">ログイン</h1>
  
-{% get_providers as socialaccount_providers %}
-{% if socialaccount_providers %}
  
-<div class="socialaccount_ballot">
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-</div>
  
 {% else %}list
 <p>{% blocktrans %}アカウントを持っていなければ、アカウントを新しく作成してください
