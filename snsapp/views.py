@@ -56,10 +56,12 @@ class Home(LoginRequiredMixin, ListView, CreateView):
     success_url = reverse_lazy('home-tag')    
     paginate_by = 15
 
-    def get_queryset(self):
-        tag_name = self.kwargs.get('tag_name', None)
+def get_queryset(self):
+    tag_name = self.kwargs.get('tag_name', None)
+    if tag_name:
+        return Post.objects.filter(tag__name=tag_name).order_by('-created_at')
+    else:
         return Post.objects.all().order_by('-created_at')
-
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context['tag_name'] = self.kwargs.get('tag_name', None)
