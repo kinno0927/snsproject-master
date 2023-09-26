@@ -117,16 +117,15 @@
       <p>アカウントをお持ちですか？ <a href="/accounts/login/">ログイン</a></p>
 
       {% if errors %}
-<div class="alert alert-danger">
-    <ul>
-        {% for field_errors in errors %}
-            {% for error in field_errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-        {% endfor %}
-    </ul>
-</div>
-{% endif %}
-    </main>
+      <div class="alert alert-danger">
+          <ul>
+              {% for field_errors in errors %}
+                  {% for error in field_errors %}
+                      <li>{{ error }}</li>
+                  {% endfor %}
+              {% endfor %}
+          </ul>
+      </div>
+      {% endif %}    </main>
   </body>
 </html>
