@@ -15,8 +15,27 @@ from django.contrib.auth import authenticate, login
 from django.conf import settings
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 from . import forms
+from django.shortcuts import render
+from .forms import SignupForm  # アカウント作成フォームのインポート
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            # フォームが有効な場合の処理（新しいユーザーを作成など）
+            pass
+    else:
+        form = SignupForm()
+
+    context = {'form': form}
+
+    # フォームが無効な場合、エラーメッセージを追加
+    if form.errors:
+        context['errors'] = form.errors
+
+    return render(request, 'signup.html', context)
+
 
 
 class TagListView(LoginRequiredMixin,ListView):
