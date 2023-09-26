@@ -54,7 +54,7 @@ class Home(LoginRequiredMixin, ListView, CreateView):
     template_name = 'list.html'
     context_object_name = 'posts'
     success_url = reverse_lazy('home-tag')    
-    paginate_by = 100
+    paginate_by = 1000
 
     def get_queryset(self):
         tag_name = self.kwargs.get('tag_name', None)
