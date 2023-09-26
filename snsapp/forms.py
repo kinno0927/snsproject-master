@@ -1,6 +1,14 @@
 from django import forms
 from .models import Post
 from django.contrib.auth.forms import AuthenticationForm
+from django import forms
+
+class SignupForm(forms.Form):
+    username = forms.CharField(max_length=150)
+    email = forms.EmailField(max_length=254)
+    password1 = forms.CharField(widget=forms.PasswordInput)
+    password2 = forms.CharField(widget=forms.PasswordInput)
+
 
 class LoginForm(AuthenticationForm):
     """ログインフォーム"""
