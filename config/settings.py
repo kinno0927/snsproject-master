@@ -25,7 +25,7 @@ SECRET_KEY = 'h43&^c57q6+412$crxl3)i68ef=l!#fs=8vha+7di&t4i$u8w9'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['18.215.248.111']
+ALLOWED_HOSTS = ['54.81.115.21']
 
 
 DATABASES = {
